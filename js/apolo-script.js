@@ -167,7 +167,7 @@ function ChatOpenClick(e) {
 }
 
 /* LOGIN & REGISTER PAGE */
-/*function registerForm() {
+function registerForm() {
 	const registerRedirect = `
 	<div class="wrapper-register">
 		<div class="header-box-content">
@@ -183,16 +183,17 @@ function ChatOpenClick(e) {
 		</form>
 	</div>
 	`
-
-	if (!$(".wrapper-register").length) {
-		$(".wrapper-form-login").after(registerForm);
+	if (checkURL("/clientes/login")) {
+		if (!$(".wrapper-register").length) {
+			$(".wrapper-form-login").after(registerForm);
+		}
 	}
-}*/
+}
 
 /* CHECK PAGE URL */
 function checkURL(word) {
 	if (window.location.href.indexOf(word) > -1) return true;
-	else return false
+	else return false;
 }
 /* CORREÇÕES DE LAYOUT */
 function CorrecaoMobile() {
