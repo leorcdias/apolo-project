@@ -185,7 +185,7 @@ function registerForm() {
 	`
 	if (checkURL("/clientes/login")) {
 		if (!$(".wrapper-register").length) {
-			$(".wrapper-form-login").after(registerForm);
+			$(".wrapper-form-login").after(registerRedirect);
 		}
 	}
 }
