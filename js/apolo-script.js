@@ -151,6 +151,8 @@ function SiteManutencao() {
 		Tawk_API.onLoad = function () {
 			chatStatus('manutencao');
 		};
+		document.title = "Apolo Artes – Loja Online de Artigos para Calçados e Moda";
+		$(".page-content > p:last-of-type").remove();
 		$(".wa-chat-header").remove();
 		$(".title-manutencao").text("Nova Loja Virtual em Construção!");
 		$(".title-manutencao ~ p:first-of-type").text("Nossa loja encontra-se em construção. Em breve uma nova loja para você, repleta de novidades!");
@@ -165,25 +167,36 @@ function ChatOpenClick(e) {
 }
 
 /* LOGIN & REGISTER PAGE */
-const registerRedirect = `
-<div class="wrapper-register">
-    <div class="header-box-content">
-        <h2>Ainda não possui conta?</h2>
-    </div>
-    <form action="/clientes/add" method="post" accept-charset="utf-8">
-        <div class="row">
-            <button class="btn" type="submit">
-                <span class="btn-icon"></span>
-                <span class="btn-text">Criar Conta</span>
-            </button>
-        </div>
-    </form>
-</div>
-`
+function registerForm() {
+	const registerRedirect = `
+	<div class="wrapper-register">
+		<div class="header-box-content">
+			<h2>Ainda não possui conta?</h2>
+		</div>
+		<form action="/clientes/add" method="post" accept-charset="utf-8">
+			<div class="row">
+				<button class="btn" type="submit">
+					<span class="btn-icon"></span>
+					<span class="btn-text">Criar Conta</span>
+				</button>
+			</div>
+		</form>
+	</div>
+	`
 
+	if (!$(".wrapper-register").length) {
+		$(".wrapper-form-login").after(registerForm);
+	}
+}
+
+/* CHECK PAGE URL */
+function checkURL(word) {
+	if (window.location.href.indexOf(word) > -1) return true;
+	else return false
+}
 /* CORREÇÕES DE LAYOUT */
 function CorrecaoMobile() {
-	if($("body").hasClass("layout-mobile")){
+	if ($("body").hasClass("layout-mobile")) {
 		$(".element-menu-top .menu-top-list > .has-sub .viem-all, #nav-main > .element-menu-category").remove();
 	}
 }
