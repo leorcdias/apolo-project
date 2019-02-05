@@ -167,7 +167,7 @@ function ChatOpenClick(e) {
 }
 
 /* LOGIN & REGISTER PAGE */
-function registerForm() {
+/*function registerForm() {
 	const registerRedirect = `
 	<div class="wrapper-register">
 		<div class="header-box-content">
@@ -187,7 +187,7 @@ function registerForm() {
 	if (!$(".wrapper-register").length) {
 		$(".wrapper-form-login").after(registerForm);
 	}
-}
+}*/
 
 /* CHECK PAGE URL */
 function checkURL(word) {
