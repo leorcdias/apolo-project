@@ -28,7 +28,9 @@ $(document).ready(function () {
 		ChatOpenClick(e);
 	});
 
-	vTimelineAnimation()
+	vTimelineAnimation();
+
+	registerForm();
 
 	SiteManutencao();
 
@@ -117,8 +119,22 @@ $.cachedScript = function (url, options) {
 	return $.ajax(options);
 };
 
+/* CHAT CLICK TO OPEN NO REDIRECT */
+function ChatOpenClick(e) {
+	if (e) { e.preventDefault(); }
+	chatStatus('clique');
+	return false;
+}
+
+/* CHECK PAGE URL */
+function checkURL(word) {
+	if (window.location.href.indexOf(word) > -1) return true;
+	else return false;
+}
+
+/* VERTICAL TIMELINE */
 function vTimelineAnimation() {
-	if (window.location.href.indexOf("quem-somos") > -1) {
+	if (checkURL("quem-somos")) {
 		loadCSS(vTimeline.css);
 		const vTimelineItems = $("#vTimeline .vTimeline-item .vTimeline-icon");
 		$(window).on("load scroll", function () {
@@ -147,7 +163,7 @@ function CompraIndisponivel() {
 
 /* SITE EM MANUTENÇÃO */
 function SiteManutencao() {
-	if (window.location.href.indexOf("manutencao") > -1) {
+	if (checkURL("manutencao")) {
 		Tawk_API.onLoad = function () {
 			chatStatus('manutencao');
 		};
@@ -157,13 +173,6 @@ function SiteManutencao() {
 		$(".title-manutencao").text("Nova Loja Virtual em Construção!");
 		$(".title-manutencao ~ p:first-of-type").text("Nossa loja encontra-se em construção. Em breve uma nova loja para você, repleta de novidades!");
 	}
-}
-
-/* CHAT CLICK TO OPEN NO REDIRECT */
-function ChatOpenClick(e) {
-	if (e) { e.preventDefault(); }
-	chatStatus('clique');
-	return false;
 }
 
 /* LOGIN & REGISTER PAGE */
@@ -190,11 +199,6 @@ function registerForm() {
 	}
 }
 
-/* CHECK PAGE URL */
-function checkURL(word) {
-	if (window.location.href.indexOf(word) > -1) return true;
-	else return false;
-}
 /* CORREÇÕES DE LAYOUT */
 function CorrecaoMobile() {
 	if ($("body").hasClass("layout-mobile")) {
