@@ -169,7 +169,7 @@ function ChatOpenClick(e) {
 /* LOGIN & REGISTER PAGE */
 function registerForm() {
 	const registerRedirect = `
-	<div class="wrapper-register">
+	<div class="wrapper-form-login" id="wrapper-form-register">
 		<div class="header-box-content">
 			<h2>Ainda não possui conta?</h2>
 		</div>
