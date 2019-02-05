@@ -4,7 +4,7 @@ const unidMeter = ["fechos-de-contato", "ziperes"]; // Categorias que deve-se ar
 const jQueryModal = {
 	"name": "jQuery Modal",
 	"script": "https://raw.githack.com/leorcdias/jquery-modal/master/jquery.modal.js",
-	"css": "https://raw.githack.com/leorcdias/jquery-modal/master/jquery.modal.css"
+	"css": "https://cdn.jsdelivr.net/gh/leorcdias/jquery-modal@8436db6/jquery.modal.css"
 }
 const vTimeline = {
 	"name": "Vertical Timeline",
