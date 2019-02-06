@@ -126,18 +126,18 @@ function checkURL(word) {
 	if (window.location.href.indexOf(word) > -1) return true;
 	else return false;
 }
- 
+
 /* VERTICAL TIMELINE */
 function vTimelineAnimation() {
 	if (checkURL("quem-somos")) {
-		if (typeof vTimelineconst === undefined) {
+		if (typeof vTimeline === undefined) {
 			vTimeline = {
 				"name": "Vertical Timeline",
 				"script": "",
 				"css": "https://cdn.jsdelivr.net/gh/leorcdias/vTimeline@38ef84d/assets/css/style.css"
 			}
-			loadCSS(vTimeline.css);
 		}
+		loadCSS(vTimeline.css);
 		const vTimelineItems = $("#vTimeline .vTimeline-item .vTimeline-icon");
 		$(window).on("load scroll", function () {
 			$("#vTimeline .vTimeline-item").each(function () {
