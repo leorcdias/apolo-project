@@ -6,6 +6,11 @@ const jQueryModal = {
 	"script": "https://raw.githack.com/leorcdias/jquery-modal/master/jquery.modal.js",
 	"css": "https://cdn.jsdelivr.net/gh/leorcdias/jquery-modal@8436db6/jquery.modal.css"
 }
+const vTimeline = {
+	"name": "Vertical Timeline",
+	"script": "",
+	"css": "https://cdn.jsdelivr.net/gh/leorcdias/vTimeline@38ef84d/assets/css/style.css"
+}
 
 $(document).ready(function () {
 	$.cachedScript(jQueryModal.script).done(function () {
@@ -130,14 +135,7 @@ function checkURL(word) {
 /* VERTICAL TIMELINE */
 function vTimelineAnimation() {
 	if (checkURL("quem-somos")) {
-		if (typeof vTimeline === undefined) {
-			vTimeline = {
-				"name": "Vertical Timeline",
-				"script": "",
-				"css": "https://cdn.jsdelivr.net/gh/leorcdias/vTimeline@38ef84d/assets/css/style.css"
-			}
-			loadCSS(vTimeline.css);
-		}
+		loadCSS(vTimeline.css);
 		const vTimelineItems = $("#vTimeline .vTimeline-item .vTimeline-icon");
 		$(window).on("load scroll", function () {
 			$("#vTimeline .vTimeline-item").each(function () {
