@@ -205,7 +205,7 @@ function welcomeMessage() {
 	const welcomeMsg = $("#header-main .element-search .welcome-message a");
 	if (welcomeMsg.length) {
 		if (welcomeMsg.text() === "Faça login") {
-			welcomeMessage.html(`Faça <a href="/clientes/login"><strong>login</strong></a> ou <a href="/clientes/add"><strong>cadastre-se</strong></a>`)
+			welcomeMessage.replaceWith(`Faça <a href="/clientes/login"><strong>login</strong></a> ou <a href="/clientes/add"><strong>cadastre-se</strong></a>`);
 		}
 	}
 }
