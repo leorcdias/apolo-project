@@ -130,14 +130,14 @@ function checkURL(word) {
 /* VERTICAL TIMELINE */
 function vTimelineAnimation() {
 	if (checkURL("quem-somos")) {
-		loadCSS(vTimeline.css);
-		const vTimelineItems = $("#vTimeline .vTimeline-item .vTimeline-icon");
 		if (typeof vTimelineconst === undefined) {
 			vTimeline = {
 				"name": "Vertical Timeline",
 				"script": "",
 				"css": "https://cdn.jsdelivr.net/gh/leorcdias/vTimeline@38ef84d/assets/css/style.css"
 			}
+		loadCSS(vTimeline.css);
+		const vTimelineItems = $("#vTimeline .vTimeline-item .vTimeline-icon");
 		}
 		$(window).on("load scroll", function () {
 			$("#vTimeline .vTimeline-item").each(function () {
