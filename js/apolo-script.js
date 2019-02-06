@@ -235,7 +235,8 @@ function CorrecaoFiltros() {
 
 function CorrecaoUnidadeMedida() {
 	$.each(unidMeter, function (_i, url) {
-		if (checkURL("/" + url + "/")) {
+		let urlLink = "/" + url + "/"
+		if (checkURL(urlLink)) {
 			$(".product-amount .label-unit").text("Unidade: metro");
 			$(".product-amount .label-amount").text(" metro(s) ");
 		}
