@@ -32,9 +32,9 @@ $(document).ready(function () {
 
 	registerForm();
 
-	SiteManutencao();
+	welcomeMessage()
 
-	CompraIndisponivel();
+	SiteManutencao();
 
 	CorrecaoFiltros();
 
@@ -45,7 +45,7 @@ $(document).ready(function () {
 	CorrecaoUnidadeMedida();
 });
 
-/* CHAT STATUS FUNCTION */
+/* CHAT STATUS */
 function chatStatus(tipo) {
 	Tawk_API = Tawk_API || {};
 	statusChat = Tawk_API.getStatus();
@@ -198,11 +198,14 @@ function registerForm() {
 		}
 	}
 
-	const welcomeMsg = $("#header-main .element-search .welcome-message a");
+}
 
+/* WELCOME MESSAGE */
+function welcomeMessage() {
+	const welcomeMsg = $("#header-main .element-search .welcome-message a");
 	if (welcomeMsg.length) {
 		if (welcomeMsg.text() === "Faça login") {
-
+			welcomeMessage.html(`Faça <a href="/clientes/login"><strong>login</strong></a> ou <a href="/clientes/add"><strong>cadastre-se</strong></a>`)
 		}
 	}
 }
