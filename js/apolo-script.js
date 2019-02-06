@@ -6,11 +6,6 @@ const jQueryModal = {
 	"script": "https://raw.githack.com/leorcdias/jquery-modal/master/jquery.modal.js",
 	"css": "https://cdn.jsdelivr.net/gh/leorcdias/jquery-modal@8436db6/jquery.modal.css"
 }
-const vTimeline = {
-	"name": "Vertical Timeline",
-	"script": "",
-	"css": "https://cdn.jsdelivr.net/gh/leorcdias/vTimeline@38ef84d/assets/css/style.css"
-}
 
 $(document).ready(function () {
 	$.cachedScript(jQueryModal.script).done(function () {
@@ -137,6 +132,13 @@ function vTimelineAnimation() {
 	if (checkURL("quem-somos")) {
 		loadCSS(vTimeline.css);
 		const vTimelineItems = $("#vTimeline .vTimeline-item .vTimeline-icon");
+		if (typeof vTimelineconst === undefined) {
+			vTimeline = {
+				"name": "Vertical Timeline",
+				"script": "",
+				"css": "https://cdn.jsdelivr.net/gh/leorcdias/vTimeline@38ef84d/assets/css/style.css"
+			}
+		}
 		$(window).on("load scroll", function () {
 			$("#vTimeline .vTimeline-item").each(function () {
 				let el = $(this);
@@ -195,6 +197,14 @@ function registerForm() {
 	if (checkURL("/clientes/login")) {
 		if (!$(".wrapper-register").length) {
 			$(".wrapper-form-login").after(registerRedirect);
+		}
+	}
+
+	const welcomeMsg = $("#header-main .element-search .welcome-message a");
+
+	if (welcomeMsg.length) {
+		if (welcomeMsg.text() === "Faça login") {
+
 		}
 	}
 }
