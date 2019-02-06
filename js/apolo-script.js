@@ -126,7 +126,7 @@ function checkURL(word) {
 	if (window.location.href.indexOf(word) > -1) return true;
 	else return false;
 }
-
+ 
 /* VERTICAL TIMELINE */
 function vTimelineAnimation() {
 	if (checkURL("quem-somos")) {
