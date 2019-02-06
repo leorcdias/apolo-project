@@ -127,8 +127,8 @@ function ChatOpenClick(e) {
 }
 
 /* CHECK PAGE URL */
-function checkURL(word) {
-	if (window.location.href.indexOf(word) > -1) return true;
+function checkURL(url) {
+	if (window.location.href.indexOf(url) > -1) return true;
 	else return false;
 }
 
@@ -235,7 +235,7 @@ function CorrecaoFiltros() {
 
 function CorrecaoUnidadeMedida() {
 	$.each(unidMeter, function (_i, url) {
-		if (window.location.href.indexOf("/" + url + "/") > -1) {
+		if (checkURL("/" + url + "/")) {
 			$(".product-amount .label-unit").text("Unidade: metro");
 			$(".product-amount .label-amount").text(" metro(s) ");
 		}
