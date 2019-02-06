@@ -202,10 +202,10 @@ function registerForm() {
 
 /* WELCOME MESSAGE */
 function welcomeMessage() {
-	let welcomeMsg = $("#header-main .element-search .welcome-message a");
+	const welcomeMsg = $("#header-main .element-search .welcome-message a");
 	if (welcomeMsg.length) {
 		if (welcomeMsg.text() === "Faça login") {
-			welcomeMessage.replaceWith(`<span>Faça <a href="/clientes/login"><strong>login</strong></a> ou <a href="/clientes/add"><strong>cadastre-se</strong></a></span>`);
+			$("#header-main .element-search .welcome-message a").html(`<span>Faça <a href="/clientes/login"><strong>login</strong></a> ou <a href="/clientes/add"><strong>cadastre-se</strong></a></span>`);
 		}
 	}
 }
