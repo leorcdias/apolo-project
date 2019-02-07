@@ -3,13 +3,13 @@ const replaceAttr = ["88", "102"]; // Códigos de atributos para corrigir vírgu
 const unidMeter = ["fechos-de-contato", "ziperes"]; // Categorias que deve-se arrumar unidades de medida
 const jQueryModal = {
 	"name": "jQuery Modal",
-	"script": "https://raw.githack.com/leorcdias/jquery-modal/master/jquery.modal.js",
-	"css": "https://cdn.jsdelivr.net/gh/leorcdias/jquery-modal@8436db6/jquery.modal.css"
+	"script": "https://raw.githack.com/leorcdias/apolo-project/jmodal/jquery.modal.min.js",
+	"css": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project/jmodal/jquery.modal.min.css"
 }
 const vTimeline = {
 	"name": "Vertical Timeline",
 	"script": "",
-	"css": "https://cdn.jsdelivr.net/gh/leorcdias/vTimeline@38ef84d/assets/css/style.css"
+	"css": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project/vtimeline/assets/css/style.min.css"
 }
 
 $(document).ready(function () {
@@ -205,7 +205,7 @@ function welcomeMessage() {
 	const welcomeMsg = $("#header-main .element-search .welcome-message a");
 	if (welcomeMsg.length) {
 		if (welcomeMsg.text() === "Faça login") {
-			$("#header-main .element-search .welcome-message").html(`<p>Seja bem vindo(a)! Faça <a href="/clientes/login"><strong>login</strong></a> ou <a href="/clientes/add"><strong>cadastre-se</strong></a></p>`);
+			$("#header-main .element-search .welcome-message").html(`<p>Seja bem vindo(a)! Faça <a href="/clientes/login">login</a> ou <a href="/clientes/add">cadastre-se</a></p>`);
 		}
 	}
 }
