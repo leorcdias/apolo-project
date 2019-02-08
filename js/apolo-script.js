@@ -272,14 +272,13 @@ function CorrecaoUnidadeMedida() {
 }
 
 function CorrecaoAtributosProduto() {
-	if ($("body").hasClass(".layout-mobile")) {
+	if ($("body").hasClass("layout-mobile")) {
 		console.log("Executou no mobile")
 		$.each(replaceAttr, function (_i, attr) {
 			$.each($(".product-view"), function (_j) {
-				let el = $(this);
-				if (el.find(".icon-product-" + attr)) {
-					var newAttr = el.find(".product-view-content").text().replace(",", ", ").replace("  ", " ");
-					el.find(".product-view-content").text(newAttr);
+				if ($(this).find(".icon-product-" + attr)) {
+					var newAttr = $(this).find(".product-view-content").text().replace(",", ", ").replace("  ", " ");
+					$(this).find(".product-view-content").text(newAttr);
 				}
 			});
 		});
