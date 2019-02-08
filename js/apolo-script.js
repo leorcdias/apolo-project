@@ -206,7 +206,7 @@ function welcomeMsg() {
 	let welcomeMsgTxt = `Visitante! Faça seu <a href="/clientes/login" title="Fazer login">login</a> ou <a href="/clientes/add" title="Cadastrar uma nova conta">cadastre-se</a>`
 	if (welcomeMsg.length) {
 		if (welcomeMsg.find("a").text() !== "Faça login") {
-			welcomeMsgTxt = `<strong>` + welcomeMsg.text().slice(19, -6) + `</strong> (<a style="font-height:normal" href="/clientes/logout">sair</a>)`;
+			welcomeMsgTxt = `<strong>` + welcomeMsg.text().slice(19, -6) + `</strong> (<a style="font-weight:normal" href="/clientes/logout">sair</a>)`;
 		}
 		let welcomeMsgHTML = `<p>Seja bem-vindo(a), ` + welcomeMsgTxt + `</p>`;
 		welcomeMsg.html(welcomeMsgHTML);
