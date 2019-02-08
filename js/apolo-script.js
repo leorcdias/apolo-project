@@ -13,7 +13,7 @@ const vTimeline = {
 }
 
 // Take hash on URL
-/*var target = window.location.hash.replace('#', '');
+var target = window.location.hash.replace('#', '');
 window.location.hash = "";
 
 $(window).on('load', function () {
@@ -22,7 +22,7 @@ $(window).on('load', function () {
 			scrollTop: $("#" + target).offset().top
 		}, 700, 'swing');
 	}
-});*/
+});
 
 $(document).ready(function () {
 
@@ -41,15 +41,6 @@ $(document).ready(function () {
 		ChatOpenClick(e);
 	});
 
-	$('a[href^="#"]').on('click', function (e) {
-		e.preventDefault();
-		var id = $(this).attr('href'),
-			targetOffset = $(id).offset().top;
-		$('html, body').animate({
-			scrollTop: targetOffset - 100
-		}, 1000);
-	});
-
 	vTimelineAnimation();
 
 	registerForm();
@@ -65,6 +56,13 @@ $(document).ready(function () {
 	CorrecaoAtributosProduto();
 
 	CorrecaoUnidadeMedida();
+
+	$('a[href^="#"]').on('click', function (e) {
+		e.preventDefault();
+		$('html, body').animate({
+			scrollTop: $(this.hash).offset().top - 100
+		}, 1000);
+	});
 });
 
 
