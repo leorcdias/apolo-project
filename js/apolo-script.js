@@ -12,15 +12,13 @@ const vTimeline = {
 	"css": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project/vtimeline/assets/css/style.min.css"
 }
 
-
 // Take hash on URL
-var target = window.location.hash,
-	target = target.replace('#', '');
+var target = window.location.hash.replace('#', '');
 window.location.hash = "";
 
 $(window).on('load', function () {
 	if (target) {
-		IDScrollAnimate();
+		IDScrollAnimate(target);
 	}
 });
 
@@ -65,13 +63,16 @@ function hashSamePage() {
 		e.preventDefault();
 		let id = $(this).attr('href'),
 			targetOffset = $(id).offset().top;
-		IDScrollAnimate();
+		IDScrollAnimate(id);
 	});
 }
 
-function IDScrollAnimate() {
+function IDScrollAnimate(target) {
+	if (target.indexOf("#") == -1) {
+		target = "#" + target
+	}
 	$('html, body').animate({
-		scrollTop: $("#" + target).offset().top
+		scrollTop: $(target).offset().top
 	}, 700, 'swing');
 }
 
