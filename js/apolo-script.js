@@ -311,7 +311,7 @@ function carrinhoVazio() {
 				</span>
 			</div>
 			`
-			while (!$("shopping-cart-empty-btn").length) {
+			while (!$(".shopping-cart-empty-btn").length) {
 				carrinho.after(btnBuy);
 			}
 		}
