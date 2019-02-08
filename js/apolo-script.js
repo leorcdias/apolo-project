@@ -277,7 +277,7 @@ function CorrecaoAtributosProduto() {
 			let el = $(".product-view");
 			$.each(replaceAttr, function (_i, attr) {
 				$.each(el, function (j) {
-					if ((j > 0) && (j < el.length)) {
+					if ((j > 0) && (j < (el.length - 1))) {
 						if ($(this).find(".icon-product-" + attr)) {
 							let elReplace = $(this).find(".product-view-content");
 							newAttr = elReplace.text().replace(",", ", ").replace("  ", " ")
