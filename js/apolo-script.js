@@ -32,7 +32,7 @@ $(document).ready(function () {
 
 	registerForm();
 
-	welcomeMessage()
+	welcomeMsg();
 
 	SiteManutencao();
 
@@ -201,12 +201,15 @@ function registerForm() {
 }
 
 /* WELCOME MESSAGE */
-function welcomeMessage() {
-	const welcomeMsg = $("#header-main .element-search .welcome-message a");
+function welcomeMsg() {
+	const welcomeMsg = $("#header-main .element-search .welcome-message");
+	let welcomeMsgTxt = `Visitante! Faça seu <a href="/clientes/login" title="Fazer login">login</a> ou <a href="/clientes/add" title="Cadastrar uma nova conta">cadastre-se</a>`
+	let welcomeMsgHTML = `<p>Seja bem-vindo(a), ` + welcomeMsgTxt + `</p>`;
 	if (welcomeMsg.length) {
-		if (welcomeMsg.text() === "Faça login") {
-			$("#header-main .element-search .welcome-message").html(`<p>Seja bem vindo(a)! Faça <a href="/clientes/login">login</a> ou <a href="/clientes/add">cadastre-se</a></p>`);
+		if (welcomeMsg.find("a").text() !== "Faça login") {
+			let welcomeMsgTxt = `<strong>` + welcomeMessage.text().slice(19, -6) + `</strong> (<a style="font-height:normal" href="/clientes/logout">sair</a>)`;
 		}
+		welcomeMsg.html(welcomeMsgHTML);
 	}
 }
 
