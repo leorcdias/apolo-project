@@ -22,6 +22,11 @@ $(window).on('load', function () {
 			scrollTop: $("#" + target).offset().top
 		}, 700, 'swing');
 	}
+	if (checkURL("/carrinho")) {
+		setTimeout(function () {
+			carrinhoVazio();
+		}, 200);
+	}
 });
 
 $(document).ready(function () {
@@ -299,10 +304,9 @@ function CorrecaoAtributosProduto() {
 }
 
 function carrinhoVazio() {
-	if (checkURL("/carrinho")) {
-		let carrinho = $("#cart-products .shopping-cart-empty");
-		if (carrinho.length) {
-			const btnBuy = `
+	let carrinho = $("#cart-products .shopping-cart-empty");
+	if (carrinho.length) {
+		let btnBuy = `
 			<div class="shopping-cart-empty-btn text-align-center">
 				<span class="shopping-cart-label-empty">
 					<a href="/" class="btn btn-cart-submit">
@@ -310,10 +314,7 @@ function carrinhoVazio() {
 					</a>
 				</span>
 			</div>
-			`
-			while (!$(".shopping-cart-empty-btn").length) {
-				carrinho.after(btnBuy);
-			}
-		}
+		`
+		carrinho.after(btnBuy);
 	}
 }
