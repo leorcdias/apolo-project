@@ -203,7 +203,7 @@ function registerForm() {
 /* WELCOME MESSAGE */
 function welcomeMsg() {
 	const welcomeMsg = $("#header-main .element-search .welcome-message");
-	let welcomeMsgTxt = `Visitante! Faça seu <a href="/clientes/login" title="Fazer login">login</a> ou <a href="/clientes/add" title="Cadastrar uma nova conta">cadastre-se</a>`
+	let welcomeMsgTxt = `Visitante! Faça seu <a href="/clientes/login#vitrine" title="Fazer login">login</a> ou <a href="/clientes/add#vitrine" title="Cadastrar uma nova conta">cadastre-se</a>`
 	if (welcomeMsg.length) {
 		if (welcomeMsg.find("a").text() !== "Faça login") {
 			welcomeMsgTxt = `<a href="/clientes/dashboard" title="Acessar minha conta">` + welcomeMsg.text().slice(19, -6) + `</a> (<a style="font-weight:normal" href="/clientes/logout">sair</a>)`;
