@@ -25,7 +25,7 @@ $(window).on('load', function () {
 	if (checkURL("/carrinho")) {
 		setTimeout(function () {
 			carrinhoVazio();
-		}, 200);
+		}, 300);
 	}
 });
 
