@@ -13,7 +13,7 @@ const vTimeline = {
 }
 
 // Take hash on URL
-var target = window.location.hash.replace('#', '');
+/*var target = window.location.hash.replace('#', '');
 window.location.hash = "";
 
 $(window).on('load', function () {
@@ -22,7 +22,7 @@ $(window).on('load', function () {
 			scrollTop: $("#" + target).offset().top
 		}, 700, 'swing');
 	}
-});
+});*/
 
 $(document).ready(function () {
 
