@@ -20,9 +20,7 @@ window.location.hash = "";
 
 $(window).on('load', function () {
 	if (target) {
-		$('html, body').animate({
-			scrollTop: $("#" + target).offset().top
-		}, 700, 'swing');
+		IDScrollAnimate();
 	}
 });
 
@@ -43,6 +41,8 @@ $(document).ready(function () {
 		ChatOpenClick(e);
 	});
 
+	hashSamePage();
+
 	vTimelineAnimation();
 
 	registerForm();
@@ -59,6 +59,21 @@ $(document).ready(function () {
 
 	CorrecaoUnidadeMedida();
 });
+
+function hashSamePage() {
+	$('a[href^="#"]').on('click', function (e) {
+		e.preventDefault();
+		let id = $(this).attr('href'),
+			targetOffset = $(id).offset().top;
+		IDScrollAnimate();
+	});
+}
+
+function IDScrollAnimate() {
+	$('html, body').animate({
+		scrollTop: $("#" + target).offset().top
+	}, 700, 'swing');
+}
 
 /* CHAT STATUS */
 function chatStatus(tipo) {
