@@ -207,7 +207,7 @@ function welcomeMsg() {
 	let welcomeMsgHTML = `<p>Seja bem-vindo(a), ` + welcomeMsgTxt + `</p>`;
 	if (welcomeMsg.length) {
 		if (welcomeMsg.find("a").text() !== "Faça login") {
-			let welcomeMsgTxt = `<strong>` + welcomeMessage.text().slice(19, -6) + `</strong> (<a style="font-height:normal" href="/clientes/logout">sair</a>)`;
+			welcomeMsgTxt = `<strong>` + welcomeMsg.text().slice(19, -6) + `</strong> (<a style="font-height:normal" href="/clientes/logout">sair</a>)`;
 		}
 		welcomeMsg.html(welcomeMsgHTML);
 	}
