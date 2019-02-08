@@ -41,7 +41,14 @@ $(document).ready(function () {
 		ChatOpenClick(e);
 	});
 
-	hashSamePage();
+	$('a[href^="#"]').on('click', function (e) {
+		e.preventDefault();
+		var id = $(this).attr('href'),
+			targetOffset = $(id).offset().top;
+		$('html, body').animate({
+			scrollTop: targetOffset - 100
+		}, 1000);
+	});
 
 	vTimelineAnimation();
 
@@ -62,16 +69,6 @@ $(document).ready(function () {
 
 
 // Anchor ID Scroll Animation
-function hashSamePage() {
-	$('a[href^="#"]').on('click', function (e) {
-		e.preventDefault();
-		let id = $(this).attr('href'),
-			targetOffset = $(id).offset().top;
-		$('html, body').animate({
-			scrollTop: targetOffset - 100
-		}, 1000);
-	});
-}
 
 /* CHAT STATUS */
 function chatStatus(tipo) {
