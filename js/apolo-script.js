@@ -18,7 +18,9 @@ window.location.hash = "";
 
 $(window).on('load', function () {
 	if (target) {
-		IDScrollAnimate(target);
+		$('html, body').animate({
+			scrollTop: $("#" + target).offset().top
+		}, 700, 'swing');
 	}
 });
 
@@ -58,22 +60,17 @@ $(document).ready(function () {
 	CorrecaoUnidadeMedida();
 });
 
+
+// Anchor ID Scroll Animation
 function hashSamePage() {
 	$('a[href^="#"]').on('click', function (e) {
 		e.preventDefault();
-		let id = $(this).attr('href'),
+		var id = $(this).attr('href'),
 			targetOffset = $(id).offset().top;
-		IDScrollAnimate(id);
+		$('html, body').animate({
+			scrollTop: targetOffset.offset().top
+		}, 700, 'swing');
 	});
-}
-
-function IDScrollAnimate(target) {
-	if (target.indexOf("#") == -1) {
-		target = "#" + target
-	}
-	$('html, body').animate({
-		scrollTop: $(target).offset().top
-	}, 700, 'swing');
 }
 
 /* CHAT STATUS */
