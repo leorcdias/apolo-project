@@ -3,13 +3,13 @@ const replaceAttr = ["88", "102"]; // Códigos de atributos para corrigir vírgu
 const unidMeter = ["fechos-de-contato", "ziperes"]; // Categorias que deve-se arrumar unidades de medida
 const jQueryModal = {
 	"name": "jQuery Modal",
-	"script": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project/jmodal/jquery.modal.min.js",
-	"css": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project/jmodal/jquery.modal.min.css"
+	"script": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project@latest/jmodal/jquery.modal.min.js",
+	"css": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project@latest/jmodal/jquery.modal.min.css"
 }
 const vTimeline = {
 	"name": "Vertical Timeline",
 	"script": "",
-	"css": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project/vtimeline/assets/css/style.min.css"
+	"css": "https://cdn.jsdelivr.net/gh/leorcdias/apolo-project@latest/vtimeline/assets/css/style.min.css"
 }
 
 // Take hash on URL
