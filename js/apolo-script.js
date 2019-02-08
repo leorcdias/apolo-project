@@ -49,6 +49,8 @@ $(document).ready(function () {
 
 	SiteManutencao();
 
+	carrinhoVazio();
+
 	CorrecaoFiltros();
 
 	CorrecaoListaProduto404();
