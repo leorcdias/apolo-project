@@ -49,8 +49,6 @@ $(document).ready(function () {
 
 	SiteManutencao();
 
-	carrinhoVazio()
-
 	CorrecaoFiltros();
 
 	CorrecaoListaProduto404();
@@ -311,7 +309,9 @@ function carrinhoVazio() {
 				</span>
 			</div>
 			`
-			carrinho.after(btnBuy);
+			while (!$("shopping-cart-empty-btn").length) {
+				carrinho.after(btnBuy);
+			}
 		}
 	}
 }
