@@ -53,7 +53,7 @@ $(document).ready(function () {
 
 	CorrecaoListaProduto404();
 
-	CorrecaoAtributosProduto();
+	//CorrecaoAtributosProduto();
 
 	CorrecaoUnidadeMedida();
 });
@@ -272,21 +272,22 @@ function CorrecaoUnidadeMedida() {
 }
 
 function CorrecaoAtributosProduto() {
-	if ($("body").hasClass("layout-mobile")) {
-		console.log("Executou no mobile")
-		$.each(replaceAttr, function (_i, attr) {
-			$.each($(".product-view"), function (_j) {
-				if ($(this).find(".icon-product-" + attr)) {
-					var newAttr = $(this).find(".product-view-content").text().replace(",", ", ").replace("  ", " ");
-					$(this).find(".product-view-content").text(newAttr);
-				}
+	if ($(".product-view").length) {
+		if ($("body").hasClass("layout-mobile")) {
+			$.each(replaceAttr, function (_i, attr) {
+				$.each($(".product-view"), function (_j) {
+					if ($(this).find(".icon-product-" + attr)) {
+						var newAttr = $(this).find(".product-view-content").text().replace(",", ", ").replace("  ", " ");
+						$(this).find(".product-view-content").text(newAttr);
+					}
+				});
 			});
-		});
-	} else {
-		$.each(replaceAttr, function (_i, attr) {
-			var element = $("#atributo-" + attr + " .attr-desc");
-			var newAttr = element.text().replace(",", ", ");
-			element.text(newAttr);
-		});
+		} else {
+			$.each(replaceAttr, function (_i, attr) {
+				var element = $("#atributo-" + attr + " .attr-desc");
+				var newAttr = element.text().replace(",", ", ");
+				element.text(newAttr);
+			});
+		}
 	}
 }
