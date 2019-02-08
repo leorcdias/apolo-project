@@ -46,7 +46,7 @@ $(document).ready(function () {
 	registerForm();
 
 	welcomeMsg();
- 
+
 	SiteManutencao();
 
 	CorrecaoFiltros();
@@ -56,17 +56,16 @@ $(document).ready(function () {
 	CorrecaoAtributosProduto();
 
 	CorrecaoUnidadeMedida();
+});
 
-	$('a[href^="#"]').on('click', function (e) {
+
+// Anchor ID Scroll Animations
+/*$('#header-main .element-search .welcome-message a[href*="#"], #vitrine a[href*="#"]').on('click', function (e) {
 		e.preventDefault();
 		$('html, body').animate({
 			scrollTop: $(this.hash).offset().top - 100
 		}, 1000);
-	});
-});
-
-
-// Anchor ID Scroll Animation
+	});*/
 
 /* CHAT STATUS */
 function chatStatus(tipo) {
@@ -229,7 +228,7 @@ function welcomeMsg() {
 	let welcomeMsgTxt = `Visitante! Faça seu <a href="/clientes/login#vitrine" title="Fazer login">login</a> ou <a href="/clientes/add#vitrine" title="Cadastrar uma nova conta">cadastre-se</a>`
 	if (welcomeMsg.length) {
 		if (welcomeMsg.find("a").text() !== "Faça login") {
-			welcomeMsgTxt = `<a href="/clientes/dashboard" title="Acessar minha conta">` + welcomeMsg.text().slice(19, -6) + `</a> (<a style="font-weight:normal" href="/clientes/logout">sair</a>)`;
+			welcomeMsgTxt = `<a href="/clientes/dashboard" title="Acessar minha conta">` + welcomeMsg.text().slice(19, -6) + `</a> (<a style="font-weight:normal" href="/clientes/logout" title="Sair da conta">sair</a>)`;
 		}
 		let welcomeMsgHTML = `<p>Seja bem-vindo(a), ` + welcomeMsgTxt + `</p>`;
 		welcomeMsg.html(welcomeMsgHTML);
@@ -273,9 +272,20 @@ function CorrecaoUnidadeMedida() {
 }
 
 function CorrecaoAtributosProduto() {
-	$.each(replaceAttr, function (_i, attr) {
-		var element = $("#atributo-" + attr + " .attr-desc");
-		var newAttr = element.text().replace(",", ", ");
-		element.text(newAttr);
-	});
+	if ($("body").hasClass(".layout-mobile")) {
+		$.each(replaceAttr, function (_i, attr) {
+			$.each($(".product-view"), function (_j) {
+				if ($(this).find(".icon-product-" + attr)) {
+					var newAttr = $(this).find(".product-view-content").text().replace(",", ", ");
+					$(this).find(".product-view-content").text(newAttr);
+				}
+			});
+		});
+	} else {
+		$.each(replaceAttr, function (_i, attr) {
+			var element = $("#atributo-" + attr + " .attr-desc");
+			var newAttr = element.text().replace(",", ", ");
+			element.text(newAttr);
+		});
+	}
 }
