@@ -49,6 +49,8 @@ $(document).ready(function () {
 
 	SiteManutencao();
 
+	carrinhoVazio()
+
 	CorrecaoFiltros();
 
 	CorrecaoListaProduto404();
@@ -273,7 +275,7 @@ function CorrecaoUnidadeMedida() {
 
 function CorrecaoAtributosProduto() {
 	if ($(".product-view").length) {
-		if ($("body").hasClass("layout-mobile")) {
+		if ($("body").hasClass("layout-mobile")) { // mobile
 			let el = $(".product-view");
 			$.each(replaceAttr, function (_i, attr) {
 				$.each(el, function (j) {
@@ -286,12 +288,30 @@ function CorrecaoAtributosProduto() {
 					}
 				});
 			});
-		} else {
+		} else { // desktop
 			$.each(replaceAttr, function (_i, attr) {
 				let element = $("#atributo-" + attr + " .attr-desc");
 				let newAttr = element.text().replace(",", ", ");
 				element.text(newAttr);
 			});
+		}
+	}
+}
+
+function carrinhoVazio() {
+	if (checkURL("/carrinho")) {
+		let carrinho = $("#cart-products .shopping-cart-empty");
+		if (carrinho.length) {
+			const btnBuy = `
+			<div class="shopping-cart-empty-btn text-align-center">
+				<span class="shopping-cart-label-empty">
+					<a href="/" class="btn btn-cart-submit">
+						<span class="btn-text">Ir às Compras</span>
+					</a>
+				</span>
+			</div>
+			`
+			carrinho.after(btnBuy);
 		}
 	}
 }
