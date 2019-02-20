@@ -37,6 +37,11 @@ $(document).ready(function () {
 		loadCSS(jQueryModal.css);
 	});
 
+	let welcomePopup = window.sessionStorage.getItem('welcomePopup');
+	if (welcomePopup === null) {
+		window.sessionStorage.setItem('welcomePopup', "1");
+	}
+
 	Tawk_API.onLoad = function () {
 		chatStatus('verificar');
 	}
@@ -119,24 +124,17 @@ const welcomeModal = `
 </div>
 `
 function welcomeMsgModal() {
-
-	let welcomePopup = window.sessionStorage.getItem('welcomePopup');
-	if (welcomePopup === null) {
-		window.sessionStorage.setItem('welcomePopup', "1");
-	}
-	setTimeout(function () {
-		if (welcomePopup === "1") {
-			if (!$("#welcomeModal").length) {
-				$("body").append(welcomeModal);
-			}
-			setTimeout(function () {
-				$("#welcomeModal").modal();
-			}, 3000);
+	if (welcomePopup === "1") {
+		if (!$("#welcomeModal").length) {
+			$("body").append(welcomeModal);
 		}
-		$('#welcomeModal').on($.modalj.CLOSE, function (event, modal) {
-			window.sessionStorage.setItem('welcomePopup', "0");
-		});
-	}, 2000);
+		setTimeout(function () {
+			$("#welcomeModal").modal();
+		}, 3000);
+	}
+	$('#welcomeModal').on($.modalj.CLOSE, function (event, modal) {
+		window.sessionStorage.setItem('welcomePopup', "0");
+	});
 }
 
 /* CHAT MODAL */
