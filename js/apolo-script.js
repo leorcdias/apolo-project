@@ -124,17 +124,19 @@ function welcomeMsgModal() {
 	if (welcomePopup === null) {
 		window.sessionStorage.setItem('welcomePopup', "1");
 	}
-	if (welcomePopup === "1") {
-		if (!$("#welcomeModal").length) {
-			$("body").append(welcomeModal);
+	setTimeout(function () {
+		if (welcomePopup === "1") {
+			if (!$("#welcomeModal").length) {
+				$("body").append(welcomeModal);
+			}
+			setTimeout(function () {
+				$("#welcomeModal").modal();
+			}, 3000);
 		}
-		setTimeout(function () {
-			$("#welcomeModal").modal();
-		}, 3000);
-	}
-	$('#welcomeModal').on($.modalj.CLOSE, function (event, modal) {
-		window.sessionStorage.setItem('welcomePopup', "0");
-	});
+		$('#welcomeModal').on($.modalj.CLOSE, function (event, modal) {
+			window.sessionStorage.setItem('welcomePopup', "0");
+		});
+	}, 2000);
 }
 
 /* CHAT MODAL */
