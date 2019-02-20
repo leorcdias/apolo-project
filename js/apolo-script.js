@@ -120,24 +120,14 @@ const welcomeModal = `
 </div>
 `
 function welcomeMsgModal() {
-
-	if (welcomePopup === null) {
-		window.sessionStorage.setItem('welcomePopup', "1");
-		//setTimeout(welcomeMsgModal(), 10000);
-	}
-	do {
-		if (welcomePopup === "1") {
-			if (!$("#welcomeModal").length) {
-				$("body").append(welcomeModal);
-			}
-			setTimeout(function () {
-				$("#welcomeModal").modal();
-			}, 3000);
+	if (sessionStorage.getItem('welcomePopup') !== "1") {
+		if (!$("#welcomeModal").length) {
+			$("body").append(welcomeModal);
 		}
-	} while (welcomePopup !== null)
-	$('#welcomeModal').on($.modalj.CLOSE, function (event, modal) {
-		window.sessionStorage.setItem('welcomePopup', "0");
-	});
+		setTimeout(function () {
+			$("#welcomeModal").modal();
+		}, 3000);
+	}
 }
 
 /* CHAT MODAL */
