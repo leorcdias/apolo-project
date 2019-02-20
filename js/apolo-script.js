@@ -127,6 +127,7 @@ function welcomeMsgModal() {
 		setTimeout(function () {
 			$("#welcomeModal").modal();
 		}, 3000);
+		sessionStorage.setItem('welcomePopup','1');
 	}
 }
 
