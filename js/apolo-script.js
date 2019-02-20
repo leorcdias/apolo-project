@@ -123,7 +123,7 @@ function welcomeMsgModal() {
 
 	if (welcomePopup === null) {
 		window.sessionStorage.setItem('welcomePopup', "1");
-		setTimeout(welcomeMsgModal(), 10000);
+		//setTimeout(welcomeMsgModal(), 10000);
 	}
 	do {
 		if (welcomePopup === "1") {
