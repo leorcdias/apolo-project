@@ -1,4 +1,5 @@
 /* VARIABLES */
+let welcomePopup = window.sessionStorage.getItem('welcomePopup');
 const replaceAttr = ["88", "102"]; // Códigos de atributos para corrigir vírgula
 const unidMeter = ["fechos-de-contato", "ziperes"]; // Categorias que deve-se arrumar unidades de medida
 const jQueryModal = {
@@ -37,7 +38,6 @@ $(document).ready(function () {
 		loadCSS(jQueryModal.css);
 	});
 
-	let welcomePopup = window.sessionStorage.getItem('welcomePopup');
 	if (welcomePopup === null) {
 		window.sessionStorage.setItem('welcomePopup', "1");
 	}
