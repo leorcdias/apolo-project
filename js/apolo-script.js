@@ -40,6 +40,7 @@ $(document).ready(function () {
 
 	if (welcomePopup === null) {
 		window.sessionStorage.setItem('welcomePopup', "1");
+		setTimeout(welcomeMsgModal(),6000);
 	}
 
 	Tawk_API.onLoad = function () {
