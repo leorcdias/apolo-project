@@ -125,7 +125,7 @@ function welcomeMsgModal() {
 		window.sessionStorage.setItem('welcomePopup', "1");
 		setTimeout(welcomeMsgModal(), 10000);
 	}
-	else if (welcomePopup === "1") {
+	if (welcomePopup === "1") {
 		if (!$("#welcomeModal").length) {
 			$("body").append(welcomeModal);
 		}
