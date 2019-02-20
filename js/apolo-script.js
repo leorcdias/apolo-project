@@ -125,14 +125,16 @@ function welcomeMsgModal() {
 		window.sessionStorage.setItem('welcomePopup', "1");
 		setTimeout(welcomeMsgModal(), 10000);
 	}
-	if (welcomePopup === "1") {
-		if (!$("#welcomeModal").length) {
-			$("body").append(welcomeModal);
+	do {
+		if (welcomePopup === "1") {
+			if (!$("#welcomeModal").length) {
+				$("body").append(welcomeModal);
+			}
+			setTimeout(function () {
+				$("#welcomeModal").modal();
+			}, 3000);
 		}
-		setTimeout(function () {
-			$("#welcomeModal").modal();
-		}, 3000);
-	}
+	} while (welcomePopup !== null)
 	$('#welcomeModal').on($.modalj.CLOSE, function (event, modal) {
 		window.sessionStorage.setItem('welcomePopup', "0");
 	});
