@@ -27,6 +27,8 @@ $(window).on('load', function () {
 			carrinhoVazio();
 		}, 300);
 	}
+
+	welcomeMsgModal();
 });
 
 $(document).ready(function () {
@@ -99,6 +101,40 @@ function chatStatus(tipo) {
 	else if (tipo === 'manutencao') {
 		Tawk_API.hideWidget();
 	}
+}
+
+/* WELCOME MESSAGE MODAL */
+const welcomeModal = `
+<div class='jmodal welcomeModal' id='welcomeModal'>
+<div class='modal-header text-align-center'>
+<p>SE LIGA NESSE SUPER LANÇAMENTO! <i class="em em-star-struck">&nbsp;</i></p>
+</div>
+<div class='modal-content has-modal-footer'>
+<img src='https://cdn.simplo7.net/static/26968/galeria/155068258550365.jpg' style='margin:0 auto;margin-bottom:10px;'alt='Super Lançamento - Tecido Cristal Camaleão' title='Super Lançamento - Tecido Cristal Camaleão' />
+<p>Na última semana de moda a <strong><i>Louis Vuitton</i></strong> desfilou as tendências para o Verão da Moda Masculina <i>(Spring-Summer 2019)</i> com seu novo diretor criativo Vigil Abloh.</p>
+<p>Nesse desfile eles apostaram no efeito furta-cor, que é igual ao produto <strong>CRISTAL CAMALEÃO</strong>, sucesso de vendas para a linha feminina, de etiquetas, bolsas e brindes.</p>
+<p style="text-transform:uppercase"><strong>Não fique de fora dessa super tendência. Corra e adquira agora mesmo!</strong> <i class="em em-fire">&nbsp;</i></p>
+<div class='modal-footer' style="text-align:center;"><button class='btn' type='button' onclick='window.location.href="https://www.apoloartes.com.br/contato"'><span class='btn-text'>EU QUERO!</span></button></div>
+</div>
+</div>
+`
+function welcomeMsgModal() {
+
+	let welcomePopup = window.sessionStorage.getItem('welcomePopup');
+	if (welcomePopup === null) {
+		window.sessionStorage.setItem('welcomePopup', "1");
+	}
+	if (welcomePopup === "1") {
+		if (!$("#welcomeModal").length) {
+			$("body").append(welcomeModal);
+		}
+		setTimeout(function () {
+			$("#welcomeModal").modal();
+		}, 3000);
+	}
+	$('#welcomeModal').on($.modalj.CLOSE, function (event, modal) {
+		window.sessionStorage.setItem('welcomePopup', "0");
+	});
 }
 
 /* CHAT MODAL */
