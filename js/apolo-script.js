@@ -115,7 +115,7 @@ const welcomeModal = `
 <p>Na última semana de moda a <strong><i>Louis Vuitton</i></strong> desfilou as tendências para o Verão da Moda Masculina <i>(Spring-Summer 2019)</i> com seu novo diretor criativo Vigil Abloh.</p>
 <p>Nesse desfile eles apostaram no efeito furta-cor, que é igual ao produto <strong>CRISTAL CAMALEÃO</strong>, sucesso de vendas para a linha feminina, de etiquetas, bolsas e brindes.</p>
 <p style="text-transform:uppercase"><strong>Não fique de fora dessa super tendência. Corra e adquira agora mesmo!</strong> <i class="em em-fire">&nbsp;</i></p>
-<div class='modal-footer' style="text-align:center;"><button class='btn' type='button' onclick='window.location.href="https://www.apoloartes.com.br/contato"'><span class='btn-text'>EU QUERO!</span></button></div>
+<div class='modal-footer' style="text-align:center;"><button class='btn' type='button' onclick='window.location.href="https://www.apoloartes.com.br/cristal-camaleao/laminado-sintetico-holografico-crystal-m2"'><span class='btn-text'>EU QUERO!</span></button></div>
 </div>
 </div>
 `
