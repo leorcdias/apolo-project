@@ -57,15 +57,12 @@ $(document).ready(function () {
 
 	SiteManutencao();
 
-	carrinhoVazio();
-
+	CorrecaoCarrinhoVazio();
 	CorrecaoFiltros();
-
 	CorrecaoListaProduto404();
-
 	CorrecaoAtributosProduto();
-
 	CorrecaoUnidadeMedida();
+	CorrecaoCopyright();
 });
 
 
@@ -333,7 +330,7 @@ function CorrecaoAtributosProduto() {
 	}
 }
 
-function carrinhoVazio() {
+function CorrecaoCarrinhoVazio() {
 	let carrinho = $("#cart-products .shopping-cart-empty");
 	if (carrinho.length) {
 		let btnBuy = `
@@ -347,4 +344,8 @@ function carrinhoVazio() {
 		`
 		carrinho.after(btnBuy);
 	}
+}
+
+function CorrecaoCopyright(){
+	$("#footer-main .copyright").remove();
 }
