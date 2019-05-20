@@ -25,7 +25,7 @@ $(window).on('load', function () {
 	}
 	if (checkURL("/carrinho")) {
 		setTimeout(function () {
-			carrinhoVazio();
+			CorrecaoCarrinhoVazio();
 		}, 500);
 	}
 
@@ -39,30 +39,29 @@ $(document).ready(function () {
 	});
 
 	Tawk_API.onLoad = function () {
-		chatStatus('verificar');
+		chatStatus('verificar')
 	}
 	Tawk_API.onStatusChange = function () {
-		chatStatus('verificar');
+		chatStatus('verificar')
 	}
 
 	$("#banner-main > li:nth-of-type(3) > a, #banner-main > li:nth-of-type(4) > a, .chat-open").on("click", function (e) {
-		ChatOpenClick(e);
+		ChatOpenClick(e)
 	});
 
-	vTimelineAnimation();
+	vTimelineAnimation()
 
-	registerForm();
+	registerForm()
 
-	welcomeMsg();
+	welcomeMsg()
 
-	SiteManutencao();
+	SiteManutencao()
 
-	CorrecaoCarrinhoVazio();
-	CorrecaoFiltros();
-	CorrecaoListaProduto404();
-	CorrecaoAtributosProduto();
-	CorrecaoUnidadeMedida();
-	CorrecaoCopyright();
+	CorrecaoFiltros()
+	CorrecaoListaProduto404()
+	CorrecaoAtributosProduto()
+	CorrecaoUnidadeMedida()
+	CorrecaoCopyright()
 });
 
 
@@ -81,23 +80,23 @@ function chatStatus(tipo) {
 	if (tipo === 'verificar') {
 		if (!Tawk_API.isVisitorEngaged()) {
 			if (statusChat === 'offline' && !Tawk_API.isChatHidden()) {
-				Tawk_API.hideWidget();
+				Tawk_API.hideWidget()
 			}
 			else if ((statusChat === 'online' || statusChat === 'away') && Tawk_API.isChatHidden()) {
-				Tawk_API.showWidget();
+				Tawk_API.showWidget()
 			}
 		}
 	}
 	else if (tipo === 'clique') {
 		if (statusChat !== 'offline' && !Tawk_API.isChatHidden()) {
-			Tawk_API.maximize();
+			Tawk_API.maximize()
 		}
 		else {
-			modalChatOffline();
+			modalChatOffline()
 		}
 	}
 	else if (tipo === 'manutencao') {
-		Tawk_API.hideWidget();
+		Tawk_API.hideWidget()
 	}
 }
 
@@ -119,12 +118,12 @@ const welcomeModal = `
 function welcomeMsgModal() {
 	if (sessionStorage.getItem('welcomePopup') !== "1") {
 		if (!$("#welcomeModal").length) {
-			$("body").append(welcomeModal);
+			$("body").append(welcomeModal)
 		}
 		setTimeout(function () {
-			$("#welcomeModal").modal();
-		}, 3000);
-		sessionStorage.setItem('welcomePopup','1');
+			$("#welcomeModal").modal()
+		}, 3000)
+		sessionStorage.setItem('welcomePopup','1')
 	}
 }
 
@@ -149,9 +148,9 @@ const chatOfflineModal = `
 
 function modalChatOffline() {
 	if (!$("#chat-offline").length) {
-		$("body").append(chatOfflineModal);
+		$("body").append(chatOfflineModal)
 	}
-	$("#chat-offline").modal();
+	$("#chat-offline").modal()
 }
 
 /* LOAD CSS'S */
@@ -172,26 +171,26 @@ $.cachedScript = function (url, options) {
 		cache: true,
 		url: url
 	});
-	return $.ajax(options);
+	return $.ajax(options)
 };
 
 /* CHAT CLICK TO OPEN NO REDIRECT */
 function ChatOpenClick(e) {
 	if (e) { e.preventDefault(); }
-	chatStatus('clique');
-	return false;
+	chatStatus('clique')
+	return false
 }
 
 /* CHECK PAGE URL */
 function checkURL(url) {
-	if (window.location.href.indexOf(url) > -1) return true;
-	else return false;
+	if (window.location.href.indexOf(url) > -1) return true
+	else return false
 }
 
 /* VERTICAL TIMELINE */
 function vTimelineAnimation() {
 	if (checkURL("quem-somos")) {
-		loadCSS(vTimeline.css);
+		loadCSS(vTimeline.css)
 		const vTimelineItems = $("#vTimeline .vTimeline-item .vTimeline-icon");
 		$(window).on("load scroll", function () {
 			$("#vTimeline .vTimeline-item").each(function () {
@@ -250,7 +249,7 @@ function registerForm() {
 	`
 	if (checkURL("/clientes/login")) {
 		if (!$(".wrapper-register").length) {
-			$(".wrapper-form-login").after(registerRedirect);
+			$(".wrapper-form-login").after(registerRedirect)
 		}
 	}
 
@@ -264,33 +263,33 @@ function welcomeMsg() {
 		if (welcomeMsg.find("a").text() !== "Faça login") {
 			welcomeMsgTxt = `<a href="/clientes/dashboard" title="Acessar minha conta">` + welcomeMsg.text().slice(19, -6) + `</a> (<a style="font-weight:normal" href="/clientes/logout" title="Sair da conta">sair</a>)`;
 		}
-		let welcomeMsgHTML = `<p>Seja bem-vindo(a), ` + welcomeMsgTxt + `</p>`;
-		welcomeMsg.html(welcomeMsgHTML);
+		let welcomeMsgHTML = `<p>Seja bem-vindo(a), ` + welcomeMsgTxt + `</p>`
+		welcomeMsg.html(welcomeMsgHTML)
 	}
 }
 
 /* CORREÇÕES DE LAYOUT */
 function CorrecaoMobile() {
 	if ($("body").hasClass("layout-mobile")) {
-		$(".element-menu-top .menu-top-list > .has-sub .viem-all, #nav-main > .element-menu-category").remove();
+		$(".element-menu-top .menu-top-list > .has-sub .viem-all, #nav-main > .element-menu-category").remove()
 	}
 }
 
 function CorrecaoListaProduto404() {
 	$("#product-list > .list-product-empty").each(function () {
 		if ($(this).text() == "Não foi encontrado nenhum produto.Estamos atualizando nosso estoque!") {
-			$(this).closest(".element-latest").remove();
+			$(this).closest(".element-latest").remove()
 		}
 	});
 }
 
 function CorrecaoFiltros() {
 	if ($('#sidebar-left .element-filter').length && $('#sidebar-left .element-filter .header-sidebar').length == 0) {
-		$('#sidebar-left .element-filter').prepend('<div class="header-sidebar"><span class="header-sidebar-title">Filtros</span></div>');
+		$('#sidebar-left .element-filter').prepend('<div class="header-sidebar"><span class="header-sidebar-title">Filtros</span></div>')
 	}
 	$('.filter-list').each(function () {
 		if ($(this).children().length < 2) {
-			$(this).parent().parent().remove();
+			$(this).parent().parent().remove()
 		}
 	});
 }
@@ -299,8 +298,8 @@ function CorrecaoUnidadeMedida() {
 	$.each(unidMeter, function (_i, url) {
 		let urlLink = "/" + url + "/"
 		if (checkURL(urlLink)) {
-			$(".product-amount .label-unit").text("Unidade: metro");
-			$(".product-amount .label-amount").text(" metro(s) ");
+			$(".product-amount .label-unit").text("Unidade: metro")
+			$(".product-amount .label-amount").text(" metro(s) ")
 		}
 	});
 }
@@ -313,25 +312,25 @@ function CorrecaoAtributosProduto() {
 				$.each(el, function (j) {
 					if ((j > 0) && (j < (el.length - 1))) {
 						if ($(this).find(".icon-product-" + attr)) {
-							let elReplace = $(this).find(".product-view-content");
+							let elReplace = $(this).find(".product-view-content")
 							newAttr = elReplace.text().replace(",", ", ").replace("  ", " ")
-							elReplace.text(newAttr);
+							elReplace.text(newAttr)
 						}
 					}
 				});
 			});
 		} else { // desktop
 			$.each(replaceAttr, function (_i, attr) {
-				let element = $("#atributo-" + attr + " .attr-desc");
-				let newAttr = element.text().replace(",", ", ");
-				element.text(newAttr);
+				let element = $("#atributo-" + attr + " .attr-desc")
+				let newAttr = element.text().replace(",", ", ")
+				element.text(newAttr)
 			});
 		}
 	}
 }
 
 function CorrecaoCarrinhoVazio() {
-	let carrinho = $("#cart-products .shopping-cart-empty");
+	let carrinho = $("#cart-products .shopping-cart-empty")
 	if (carrinho.length) {
 		let btnBuy = `
 			<div class="shopping-cart-empty-btn text-align-center">
@@ -342,10 +341,10 @@ function CorrecaoCarrinhoVazio() {
 				</span>
 			</div>
 		`
-		carrinho.after(btnBuy);
+		carrinho.after(btnBuy)
 	}
 }
 
 function CorrecaoCopyright(){
-	$("#footer-main .copyright").remove();
+	$("#footer-main .copyright").remove()
 }
