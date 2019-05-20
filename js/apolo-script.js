@@ -26,10 +26,10 @@ $(window).on('load', function () {
 	if (checkURL("/carrinho")) {
 		setTimeout(function () {
 			carrinhoVazio();
-		}, 300);
+		}, 500);
 	}
 
-	welcomeMsgModal();
+	//welcomeMsgModal();
 });
 
 $(document).ready(function () {
