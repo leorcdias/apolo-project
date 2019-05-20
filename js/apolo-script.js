@@ -141,7 +141,7 @@ const chatOfflineModal = `
         <p>Mas calma, não se desespere <i class='em em-grinning'>&nbsp;</i>. Entre em contato com a gente pela
             nossa <strong>Central de Atendimento</strong> clicando no botão abaixo. Responderemos você o mais
             rápido possível!</p>
-        <div class='modal-footer'><button class='btn' type='button' onclick='window.sessionStorage.setItem('welcomePopup', "0");window.location.href="https://www.apoloartes.com.br/contato"'><span class='btn-text'>Central de Atendimento</span></button></div>
+        <div class='modal-footer'><button class='btn' type='button' onclick='window.sessionStorage.setItem("welcomePopup", "0");window.location.href="https://www.apoloartes.com.br/contato";'><span class='btn-text'>Central de Atendimento</span></button></div>
     </div>
 </div>
 `
