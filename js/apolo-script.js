@@ -128,7 +128,7 @@ const arraia = `
 function welcomeMsgModal() {
 	if (sessionStorage.getItem('welcomePopup') !== "1") {
 		if (!$("#welcomeModal").length) {
-			$("body").append(welcomeModal)
+			$("body").append(arraia)
 		}
 		setTimeout(function () {
 			$("#welcomeModal").modal()
