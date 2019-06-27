@@ -53,7 +53,9 @@ $(document).ready(function () {
 
 	registerForm()
 
-	welcomeMsg()
+	loginText()
+
+	welcomeMsgModal()
 
 	SiteManutencao()
 
@@ -112,6 +114,14 @@ const welcomeModal = `
 <p>Nesse desfile eles apostaram no efeito furta-cor, que é igual ao produto <strong>CRISTAL CAMALEÃO</strong>, sucesso de vendas para a linha feminina, de etiquetas, bolsas e brindes.</p>
 <p style="text-transform:uppercase"><strong>Não fique de fora dessa super tendência. Corra e adquira agora mesmo!</strong> <i class="em em-fire">&nbsp;</i></p>
 <div class='modal-footer' style="text-align:center;"><button class='btn' type='button' onclick='window.location.href="https://www.apoloartes.com.br/cristal-camaleao/laminado-sintetico-holografico-crystal-m2"'><span class='btn-text'>EU QUERO!</span></button></div>
+</div>
+</div>
+`
+
+const arraia = `
+<div class='jmodal welcomeModal' id='welcomeModal'>
+<div class='modal-content has-modal-footer'>
+<img src='https://cdn.simplo7.net/static/26968/galeria/156165536319527.jpeg' style='margin:0 auto;' alt='Arraial Apolo Artes 28 de Junho' title='Arraial Apolo Artes 28 de Junho' />
 </div>
 </div>
 `
@@ -256,7 +266,7 @@ function registerForm() {
 }
 
 /* WELCOME MESSAGE */
-function welcomeMsg() {
+function loginText() {
 	const welcomeMsg = $("#header-main .element-search .welcome-message");
 	let welcomeMsgTxt = `Visitante! Faça seu <a href="/clientes/login#vitrine" title="Fazer login">login</a> ou <a href="/clientes/add#vitrine" title="Cadastrar uma nova conta">cadastre-se</a>`
 	if (welcomeMsg.length) {
