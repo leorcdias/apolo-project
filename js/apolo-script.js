@@ -55,7 +55,7 @@ $(document).ready(function () {
 
 	loginText()
 
-	welcomeMsgModal()
+	//welcomeMsgModal()
 
 	SiteManutencao()
 
@@ -118,17 +118,10 @@ const welcomeModal = `
 </div>
 `
 
-const arraia = `
-<div class='jmodal welcomeModal' id='welcomeModal'>
-<div class='modal-content has-modal-footer'>
-<img src='https://cdn.simplo7.net/static/26968/galeria/156165536319527.jpeg' style='margin:0 auto;' alt='Arraial Apolo Artes 28 de Junho' title='Arraial Apolo Artes 28 de Junho' />
-</div>
-</div>
-`
 function welcomeMsgModal() {
 	if (sessionStorage.getItem('welcomePopup') !== "1") {
 		if (!$("#welcomeModal").length) {
-			$("body").append(arraia)
+			$("body").append(welcomeModal)
 		}
 		setTimeout(function () {
 			$("#welcomeModal").modal()
