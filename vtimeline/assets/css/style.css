@@ -64,6 +64,14 @@
   transition: 0.7s ease-out;
 }
 
+#vTimeline .vTimeline-year {
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    line-height: 50px;
+    font-size: 110%;
+}
+
 #vTimeline .vTimeline-item .vTimeline-icon img {
   position: relative;
   top: 14px;
